@@ -1,41 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../redux/slices/authSlice';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { loginUser } from '../../redux/authSlice.js';
+import AuthForm from '../../components/AuthForm.jsx';
 
-const LoginPage = () => {
-    const dispatch = useDispatch();
-    const { status, error } = useSelector((state) => state.auth);
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+        const LoginPage = () => {
+            const dispatch = useDispatch();
+            const navigate = useNavigate();
+            const location = useLocation();
+            const { status, error } = useSelector((state) => state.auth);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(login({ username, password }));
+            const from = location.state?.from?.pathname || '/dashboard';
+
+            const handleLogin = (formData) => {
+                console.log('Guest login data:', formData); // Отладка
+                dispatch(loginUser(formData)).then((result) => {
+            console.log('Login result:', result); // Отладка
+            if (result.meta.requestStatus === 'fulfilled') {
+                navigate(from, { replace: true });
+            }
+        });
     };
 
-    return (
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit" disabled={status === 'loading'}>
-                    {status === 'loading' ? 'Logging in...' : 'Login'}
-                </button>
-            </form>
-            {status === 'failed' && <p>{error}</p>}
-        </div>
-    );
+    return <AuthForm onSubmit={handleLogin} isLogin={true} status={status} error={error} />;
 };
 
 export default LoginPage;

@@ -1,41 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../redux/slices/authSlice';
+import { useNavigate } from 'react-router-dom';
+import { registerUser } from '../../redux/authSlice.js';
+import AuthForm from '../../components/AuthForm.jsx';
 
 const RegisterPage = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { status, error } = useSelector((state) => state.auth);
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(register({ username, password }));
+    const handleRegister = (formData) => {
+        dispatch(registerUser(formData)).then((result) => {
+            if (result.meta.requestStatus === 'fulfilled') {
+                navigate('/dashboard', { replace: true });
+            }
+        });
     };
 
-    return (
-        <div>
-            <h1>Register</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit" disabled={status === 'loading'}>
-                    {status === 'loading' ? 'Registering...' : 'Register'}
-                </button>
-            </form>
-            {status === 'failed' && <p>{error}</p>}
-        </div>
-    );
+    return <AuthForm onSubmit={handleRegister} isLogin={false} status={status} error={error} />;
 };
 
 export default RegisterPage;
