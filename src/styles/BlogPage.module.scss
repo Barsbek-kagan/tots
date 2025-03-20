@@ -1,0 +1,159 @@
+.blogPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.featuredBlog {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.featuredContent {
+  flex: 1;
+  padding-right: 20px;
+
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+}
+
+.readNowButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.featuredImage {
+  flex: 1;
+
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+.relatedBlog {
+  margin-bottom: 40px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h2 {
+    font-size: 20px;
+    color: #333;
+  }
+}
+
+.seeAllLink {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.relatedPosts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.relatedPostCard {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+
+  h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+  }
+
+  p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+}
+
+.postImage {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.postMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #999;
+}
+
+.marketingArticles {
+  margin-bottom: 40px;
+}
+
+.articleCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.articleCard {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+
+  h3 {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+  }
+}
+
+.articleImage {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.articleMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #999;
+  margin-top: 10px;
+}

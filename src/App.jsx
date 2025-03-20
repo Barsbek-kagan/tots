@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage.jsx';
 import Dashboard from './pages/DashboardPage.jsx';
+import BlogPage from './pages/BlogPage'; // Импортируем новую страницу
 import PrivateRoute from './components/PrivateRoute';
+import HomePage from "./pages/HomePage.jsx";
 
 const App = () => {
     return (
@@ -21,9 +21,16 @@ const App = () => {
                         </PrivateRoute>
                     }
                 />
+                <Route
+                    path="/"
+                    element={
+                        <PrivateRoute>
+                            <HomePage />
+                        </PrivateRoute>
+                    }
+                />
                 <Route path="*" element={<LoginPage />} />
             </Routes>
-            <ToastContainer />
         </Router>
     );
 };
