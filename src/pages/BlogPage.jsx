@@ -1,15 +1,22 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../styles/BlogPage.module.scss';
 
 const BlogPage = () => {
+    const navigate = useNavigate();
+
+    // Функция для выхода из системы
+    const handleLogout = () => {
+        localStorage.removeItem('user');
+        navigate('/login');
+    };
+
     // Данные для Featured Blog
     const featuredPost = {
         title: 'Why SwiftUI Should Be on the Radar of Every Mobile Developer',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: 'https://s3-alpha-sig.figma.com/img/5abc/f770/24978c219bf2223fc9e32ec5fae8375f?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=h0YbDNAtpAuVFFeK4P~j0koWiFw2oB3fUoNnc0Et7OMEmmlKEP723SOcXdvtI57GeCZEvwp46DRdk6DhRRh5h7GrU832aV4iE2iWxp~xqZm8uwsAkNrky6bGWnBCoPBDCnoAlQQ-au2vXk9kszvI9~MJZ6kwiog6ZFsIBmII3Z7kCcOSitdk~HWuCjZTx9UYhjAmZ8REvTpb310DEHHWxEohgvRwq0CAMiXqm0rwMAPexzvZX2SZdLMMiEn~Z9I2fFfIZRsSIIFPthSKAIJ~oS11bcxULzRXUqen5LHgb7Njk3zzlcpOff08IbKdBJ2J8nyf8RVwDeNhdKDGLe5Bww__' +
-            '' +
-            '', // Замените на реальное изображение
+        image: 'https://via.placeholder.com/300x200', // Замените на реальное изображение
     };
 
     // Данные для Related Blog
@@ -70,6 +77,43 @@ const BlogPage = () => {
 
     return (
         <div className={styles.blogPage}>
+            {/* Навигационное меню */}
+            <nav className={styles.navbar}>
+                <div className={styles.logo}>TOTC</div>
+                <ul className={styles.navLinks}>
+                    <li>
+                        <Link to="/" className={styles.navLink}>
+                            Home
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/courses" className={styles.navLink}>
+                            Courses
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/careers" className={styles.navLink}>
+                            Careers
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/blog" className={styles.navLink}>
+                            Blog
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/about" className={styles.navLink}>
+                            About Us
+                        </Link>
+                    </li>
+                </ul>
+                <div className={styles.authButtons}>
+                    <button onClick={handleLogout} className={styles.logoutButton}>
+                        Logout
+                    </button>
+                </div>
+            </nav>
+
             {/* Featured Blog */}
             <section className={styles.featuredBlog}>
                 <div className={styles.featuredContent}>

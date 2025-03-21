@@ -1,7 +1,61 @@
 .blogPage {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e6f0fa 0%, #ffffff 100%);
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #007bff;
+  }
+}
+
+.authButtons {
+  display: flex;
+  gap: 15px;
+}
+
+.logoutButton {
+  padding: 8px 20px;
+  background-color: #ff4d4f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #e63946;
+  }
 }
 
 .featuredBlog {
@@ -10,6 +64,7 @@
   background-color: #f8f9fa;
   padding: 20px;
   border-radius: 10px;
+  margin: 40px;
   margin-bottom: 40px;
 
   @media (max-width: 768px) {
@@ -59,7 +114,7 @@
 }
 
 .relatedBlog {
-  margin-bottom: 40px;
+  margin: 0 40px 40px;
 }
 
 .sectionHeader {
@@ -122,7 +177,7 @@
 }
 
 .marketingArticles {
-  margin-bottom: 40px;
+  margin: 0 40px 40px;
 }
 
 .articleCards {

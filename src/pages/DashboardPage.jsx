@@ -22,7 +22,7 @@ const DashboardPage = () => {
             <p>Username: {user?.username || 'N/A'}</p>
             <p>Password: {user?.password || 'N/A'}</p>
             <div style={{ margin: '20px 0' }}>
-                <Link to="/" style={{ color: '#007bff', textDecoration: 'none', fontSize: '16px' }}>
+                <Link to="/blogpage" style={{ color: '#007bff', textDecoration: 'none', fontSize: '16px' }}>
                     Go to Blog
                 </Link>
             </div>
