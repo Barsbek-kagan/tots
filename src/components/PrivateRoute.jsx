@@ -1,9 +1,16 @@
+// src/components/PrivateRoute.jsx
 import React from 'react';
 import { Navigate } from 'react-router-dom';
+import { isAuthenticated } from '../utils/auth';
 
 const PrivateRoute = ({ children }) => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return user ? children : <Navigate to="/login" />;
+  const authenticated = isAuthenticated();
+
+  if (authenticated === null) {
+    return <div>Loading...</div>; // Показываем лоадер, пока проверяем авторизацию
+  }
+
+  return authenticated ? children : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;

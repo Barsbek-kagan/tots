@@ -1,71 +1,20 @@
+// src/styles/BlogPage.module.scss
+@import './variables';
+
 .blogPage {
   min-height: 100vh;
-  background: linear-gradient(180deg, #e6f0fa 0%, #ffffff 100%);
+  background: linear-gradient(180deg, $gray-medium 0%, $white 100%);
   padding: 0;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #007bff;
-}
-
-.navLinks {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.navLink {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  transition: color 0.3s;
-
-  &:hover {
-    color: #007bff;
-  }
-}
-
-.authButtons {
-  display: flex;
-  gap: 15px;
-}
-
-.logoutButton {
-  padding: 8px 20px;
-  background-color: #ff4d4f;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #e63946;
-  }
 }
 
 .featuredBlog {
   display: flex;
   align-items: center;
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 40px;
-  margin-bottom: 40px;
+  background-color: $gray-light;
+  padding: $spacing-md;
+  border-radius: $border-radius;
+  margin: $spacing-xl;
+  margin-bottom: $spacing-xl;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -74,33 +23,33 @@
 
 .featuredContent {
   flex: 1;
-  padding-right: 20px;
+  padding-right: $spacing-md;
 
   h1 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: $font-size-lg;
+    color: $text-dark;
+    margin-bottom: $spacing-sm;
   }
 
   p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-md;
   }
 }
 
 .readNowButton {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  padding: $spacing-sm $spacing-md;
+  background-color: $primary;
+  color: $white;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: $border-radius;
+  font-size: $font-size-md;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: $primary-dark;
   }
 }
 
@@ -109,30 +58,30 @@
 
   img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: $border-radius;
   }
 }
 
 .relatedBlog {
-  margin: 0 40px 40px;
+  margin: 0 $spacing-xl $spacing-xl;
 }
 
 .sectionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: $spacing-md;
 
   h2 {
-    font-size: 20px;
-    color: #333;
+    font-size: $font-size-lg;
+    color: $text-dark;
   }
 }
 
 .seeAllLink {
-  color: #007bff;
+  color: $primary;
   text-decoration: none;
-  font-size: 16px;
+  font-size: $font-size-md;
 
   &:hover {
     text-decoration: underline;
@@ -142,73 +91,73 @@
 .relatedPosts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: $spacing-md;
 }
 
 .relatedPostCard {
-  background-color: #fff;
-  border-radius: 10px;
+  background-color: $white;
+  border-radius: $border-radius;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: $spacing-md;
 
   h3 {
-    font-size: 18px;
-    color: #333;
-    margin: 10px 0;
+    font-size: $font-size-md;
+    color: $text-dark;
+    margin: $spacing-sm 0;
   }
 
   p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
+    font-size: $font-size-sm;
+    color: $gray-dark;
+    margin-bottom: $spacing-sm;
   }
 }
 
 .postImage {
   width: 100%;
-  border-radius: 10px;
+  border-radius: $border-radius;
 }
 
 .postMeta {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
-  color: #999;
+  font-size: $font-size-sm;
+  color: $gray-dark;
 }
 
 .marketingArticles {
-  margin: 0 40px 40px;
+  margin: 0 $spacing-xl $spacing-xl;
 }
 
 .articleCards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  gap: $spacing-md;
 }
 
 .articleCard {
-  background-color: #fff;
-  border-radius: 10px;
+  background-color: $white;
+  border-radius: $border-radius;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: $spacing-md;
   text-align: center;
 
   h3 {
-    font-size: 16px;
-    color: #333;
-    margin: 10px 0;
+    font-size: $font-size-md;
+    color: $text-dark;
+    margin: $spacing-sm 0;
   }
 }
 
 .articleImage {
   width: 100%;
-  border-radius: 10px;
+  border-radius: $border-radius;
 }
 
 .articleMeta {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
-  color: #999;
-  margin-top: 10px;
+  font-size: $font-size-sm;
+  color: $gray-dark;
+  margin-top: $spacing-sm;
 }

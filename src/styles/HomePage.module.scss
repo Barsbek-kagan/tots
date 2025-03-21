@@ -1,85 +1,22 @@
+// src/styles/HomePage.module.scss
+@import './variables';
+
 .homePage {
-  background: linear-gradient(180deg, #e6f0fa 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #e6f0fa 0%, $white 100%);
   padding: 0;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #007bff;
-}
-
-.navLinks {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.navLink {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  transition: color 0.3s;
-
-  &:hover {
-    color: #007bff;
-  }
-}
-
-.authButtons {
-  display: flex;
-  gap: 15px;
-}
-
-.loginButton {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  padding: 8px 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
-
-  &:hover {
-    background-color: #f0f0f0;
-  }
-}
-
-.signUpButton {
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-  padding: 8px 20px;
-  background-color: #007bff;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #0056b3;
-  }
 }
 
 .heroSection {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 50px 40px;
+  padding: $spacing-xl;
   min-height: calc(100vh - 80px);
+  background: linear-gradient(180deg, #b3e5fc 0%, $white 100%);
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 20px;
+    padding: $spacing-md;
   }
 }
 
@@ -88,65 +25,68 @@
   max-width: 500px;
 
   h1 {
-    font-size: 48px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: $font-size-xxl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
     line-height: 1.2;
 
+    .highlight {
+      color: #ff9800; // Оранжевый цвет для "Online"
+    }
+
     @media (max-width: 768px) {
-      font-size: 32px;
+      font-size: $font-size-xl;
     }
   }
 
   p {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 30px;
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-lg;
   }
 }
 
 .heroButtons {
   display: flex;
-  gap: 20px;
+  gap: $spacing-md;
 }
 
 .joinButton {
-  padding: 12px 30px;
-  background-color: #007bff;
-  color: #fff;
+  padding: $spacing-sm $spacing-lg;
+  background-color: #4db6ac; // Зелёный цвет
+  color: $white;
   border: none;
   border-radius: 25px;
-  font-size: 16px;
+  font-size: $font-size-md;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #26a69a; // Более тёмный зелёный
   }
 }
 
 .watchButton {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 30px;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-lg;
   background-color: transparent;
-  color: #007bff;
-  border: 1px solid #007bff;
+  color: #4db6ac; // Зелёный цвет
+  border: 1px solid #4db6ac;
   border-radius: 25px;
-  font-size: 16px;
+  font-size: $font-size-md;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 
   &:hover {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #4db6ac;
+    color: $white;
   }
 }
 
 .playIcon {
-  width: 20px;
-  height: 20px;
+  font-size: $font-size-md;
 }
 
 .heroImage {
@@ -160,86 +100,122 @@
   }
 
   @media (max-width: 768px) {
-    margin-top: 30px;
+    margin-top: $spacing-lg;
   }
 }
 
 .floatingCard {
   position: absolute;
-  background-color: #fff;
-  padding: 10px 20px;
-  border-radius: 10px;
+  background-color: $white;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  color: #333;
-}
-
-.cardIcon {
-  width: 24px;
-  height: 24px;
+  gap: $spacing-sm;
+  font-size: $font-size-sm;
+  color: $text-dark;
 }
 
 .statsCard {
-  top: 20px;
+  top: $spacing-md;
   left: -50px;
-  background-color: #e6f0fa;
+  background-color: #b3e5fc; // Голубой цвет
 }
 
 .congratsCard {
   bottom: 50px;
   right: -50px;
-  background-color: #fff3e0;
+  background-color: #ff9800; // Оранжевый цвет
+  color: $white;
 }
 
 .userCard {
-  bottom: 20px;
+  bottom: $spacing-md;
   left: -50px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: $spacing-sm;
+  background-color: #f06292; // Розовый цвет
+  color: $white;
 }
 
 .joinNowButton {
-  padding: 8px 20px;
-  background-color: #ff4d4f;
-  color: #fff;
+  padding: $spacing-xs $spacing-md;
+  background-color: $white;
+  color: #f06292;
   border: none;
-  border-radius: 5px;
-  font-size: 14px;
+  border-radius: $border-radius;
+  font-size: $font-size-sm;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #e63946;
+    background-color: #e0e0e0;
   }
 }
 
 .calendarCard {
   top: 50px;
   right: -30px;
-  background-color: #ff4d4f;
-  padding: 10px;
+  background-color: #f06292; // Розовый цвет
+  padding: $spacing-sm;
+
+  svg {
+    font-size: $font-size-lg;
+    color: $white;
+  }
+}
+
+.videoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.videoModalContent {
+  position: relative;
+  background-color: $white;
+  padding: $spacing-md;
+  border-radius: $border-radius;
+  max-width: 800px;
+  width: 90%;
+}
+
+.closeButton {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  background: none;
+  border: none;
+  font-size: $font-size-lg;
+  cursor: pointer;
+  color: $text-dark;
 }
 
 .successSection {
-  padding: 50px 40px;
+  padding: $spacing-xl;
   text-align: center;
-  background-color: #fff;
+  background-color: $white;
 
   h2 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
   }
 
   p {
-    font-size: 16px;
-    color: #666;
+    font-size: $font-size-md;
+    color: $gray-dark;
     max-width: 600px;
-    margin: 0 auto 40px;
+    margin: 0 auto $spacing-xl;
   }
 }
 
@@ -247,102 +223,101 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: $spacing-md;
 }
 
 .statItem {
   h3 {
-    font-size: 48px;
-    color: #007bff;
-    margin-bottom: 10px;
+    font-size: $font-size-xxl;
+    color: #4db6ac; // Зелёный цвет
+    margin-bottom: $spacing-sm;
   }
 
   p {
-    font-size: 16px;
-    color: #333;
+    font-size: $font-size-md;
+    color: $text-dark;
   }
 
   span {
     display: block;
-    font-size: 14px;
-    color: #666;
-    margin-top: 5px;
+    font-size: $font-size-sm;
+    color: $gray-dark;
+    margin-top: $spacing-xs;
   }
 }
 
 .softwareSection {
-  padding: 50px 40px;
+  padding: $spacing-xl;
   text-align: center;
-  background-color: #f8f9fa;
+  background-color: $gray-light;
 
   h2 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
   }
 
   p {
-    font-size: 16px;
-    color: #666;
+    font-size: $font-size-md;
+    color: $gray-dark;
     max-width: 600px;
-    margin: 0 auto 40px;
+    margin: 0 auto $spacing-xl;
   }
 }
 
 .featureCards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: $spacing-md;
 }
 
 .featureCard {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
+  background-color: $white;
+  padding: $spacing-lg;
+  border-radius: $border-radius;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
 
   h3 {
-    font-size: 20px;
-    color: #333;
-    margin: 20px 0 10px;
+    font-size: $font-size-lg;
+    color: $text-dark;
+    margin: $spacing-md 0 $spacing-sm;
   }
 
   p {
-    font-size: 14px;
-    color: #666;
+    font-size: $font-size-sm;
+    color: $gray-dark;
   }
 }
 
 .featureIcon {
-  width: 50px;
-  height: 50px;
+  font-size: 50px;
+  color: #4db6ac; // Зелёный цвет
 }
 
-// Новые стили для секции "What is TOTC?"
 .whatIsTotcSection {
-  padding: 50px 40px;
+  padding: $spacing-xl;
   text-align: center;
-  background-color: #fff;
+  background-color: $white;
 
   h2 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
   }
 
   p {
-    font-size: 16px;
-    color: #666;
+    font-size: $font-size-md;
+    color: $gray-dark;
     max-width: 600px;
-    margin: 0 auto 40px;
+    margin: 0 auto $spacing-xl;
   }
 }
 
 .totcCards {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: $spacing-md;
   flex-wrap: wrap;
 }
 
@@ -350,7 +325,7 @@
   position: relative;
   width: 300px;
   height: 200px;
-  border-radius: 10px;
+  border-radius: $border-radius;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
@@ -359,8 +334,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 24px;
+    color: $white;
+    font-size: $font-size-lg;
     z-index: 2;
   }
 }
@@ -374,34 +349,33 @@
 
 .totcButton {
   position: absolute;
-  bottom: 20px;
+  bottom: $spacing-md;
   left: 50%;
   transform: translateX(-50%);
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  padding: $spacing-sm $spacing-md;
+  background-color: #4db6ac; // Зелёный цвет
+  color: $white;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: $border-radius;
+  font-size: $font-size-md;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #26a69a; // Более тёмный зелёный
   }
 }
 
-// Новые стили для секции "Everything you can do in a physical classroom"
 .classroomSection {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 50px 40px;
-  background-color: #f8f9fa;
+  padding: $spacing-xl;
+  background-color: $gray-light;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 20px;
+    padding: $spacing-md;
   }
 }
 
@@ -410,29 +384,29 @@
   max-width: 500px;
 
   h2 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
   }
 
   p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 30px;
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-lg;
   }
 }
 
 .learnMoreButton {
-  padding: 10px 20px;
+  padding: $spacing-sm $spacing-md;
   background-color: transparent;
-  color: #007bff;
+  color: #4db6ac; // Зелёный цвет
   border: none;
-  font-size: 16px;
+  font-size: $font-size-md;
   cursor: pointer;
   transition: color 0.3s;
 
   &:hover {
-    color: #0056b3;
+    color: #26a69a; // Более тёмный зелёный
   }
 }
 
@@ -443,27 +417,26 @@
   img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: $border-radius;
   }
 }
 
-// Новые стили для секции "Our Features"
 .featuresSection {
-  padding: 50px 40px;
+  padding: $spacing-xl;
   text-align: center;
-  background-color: #fff;
+  background-color: $white;
 
   h2 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
   }
 
   p {
-    font-size: 16px;
-    color: #666;
+    font-size: $font-size-md;
+    color: $gray-dark;
     max-width: 600px;
-    margin: 0 auto 40px;
+    margin: 0 auto $spacing-xl;
   }
 }
 
@@ -471,7 +444,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: $spacing-xl;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -491,15 +464,15 @@
   max-width: 500px;
 
   h3 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: $font-size-lg;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
   }
 
   p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-md;
   }
 }
 
@@ -509,17 +482,17 @@
   text-align: left;
 
   li {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 10px;
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-sm;
     position: relative;
-    padding-left: 20px;
+    padding-left: $spacing-md;
 
     &:before {
       content: '•';
       position: absolute;
       left: 0;
-      color: #007bff;
+      color: #4db6ac; // Зелёный цвет
     }
   }
 }
@@ -531,52 +504,51 @@
   img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: $border-radius;
   }
 }
 
-// Новые стили для секции "Explore Course"
 .courseSection {
-  padding: 50px 40px;
+  padding: $spacing-xl;
   text-align: center;
-  background-color: #f8f9fa;
+  background-color: $gray-light;
 
   h2 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
   }
 
   p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 40px;
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-xl;
   }
 }
 
 .courseCards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: $spacing-md;
 }
 
 .courseCard {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  background-color: $white;
+  padding: $spacing-md;
+  border-radius: $border-radius;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: left;
 
   h3 {
-    font-size: 18px;
-    color: #333;
-    margin: 10px 0;
+    font-size: $font-size-md;
+    color: $text-dark;
+    margin: $spacing-sm 0;
   }
 
   p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
+    font-size: $font-size-sm;
+    color: $gray-dark;
+    margin-bottom: $spacing-sm;
   }
 }
 
@@ -584,41 +556,41 @@
   width: 100%;
   height: 150px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: $border-radius;
 }
 
 .courseMeta {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
-  color: #999;
-  margin-bottom: 10px;
+  font-size: $font-size-sm;
+  color: $gray-dark;
+  margin-bottom: $spacing-sm;
 }
 
 .exploreButton {
   width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
+  padding: $spacing-sm;
+  background-color: #4db6ac; // Зелёный цвет
+  color: $white;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: $border-radius;
+  font-size: $font-size-md;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #26a69a; // Более тёмный зелёный
   }
 }
 
 .seeAll {
-  margin-top: 20px;
+  margin-top: $spacing-md;
   text-align: right;
 
   a {
-    color: #007bff;
+    color: #4db6ac; // Зелёный цвет
     text-decoration: none;
-    font-size: 16px;
+    font-size: $font-size-md;
 
     &:hover {
       text-decoration: underline;
@@ -626,37 +598,36 @@
   }
 }
 
-// Новые стили для секции "What They Say?"
 .testimonialSection {
-  padding: 50px 40px;
+  padding: $spacing-xl;
   text-align: center;
-  background-color: #fff;
+  background-color: $white;
 
   h2 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
   }
 
   p {
-    font-size: 16px;
-    color: #666;
+    font-size: $font-size-md;
+    color: $gray-dark;
     max-width: 600px;
-    margin: 0 auto 40px;
+    margin: 0 auto $spacing-xl;
   }
 }
 
 .assessmentButton {
-  padding: 10px 20px;
+  padding: $spacing-sm $spacing-md;
   background-color: transparent;
-  color: #007bff;
+  color: #4db6ac; // Зелёный цвет
   border: none;
-  font-size: 16px;
+  font-size: $font-size-md;
   cursor: pointer;
   transition: color 0.3s;
 
   &:hover {
-    color: #0056b3;
+    color: #26a69a; // Более тёмный зелёный
   }
 }
 
@@ -664,7 +635,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 40px;
+  margin-top: $spacing-xl;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -677,21 +648,21 @@
   text-align: left;
 
   p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-md;
   }
 }
 
 .testimonialAuthor {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 5px;
+  font-size: $font-size-md;
+  color: $text-dark;
+  margin-bottom: $spacing-xs;
 }
 
 .testimonialMeta {
-  font-size: 14px;
-  color: #999;
+  font-size: $font-size-sm;
+  color: $gray-dark;
 }
 
 .testimonialImage {
@@ -701,52 +672,51 @@
   img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: $border-radius;
   }
 }
 
-// Новые стили для секции "Latest News and Resources"
 .newsSection {
-  padding: 50px 40px;
+  padding: $spacing-xl;
   text-align: center;
-  background-color: #f8f9fa;
+  background-color: $gray-light;
 
   h2 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
   }
 
   p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 40px;
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-xl;
   }
 }
 
 .newsCards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: $spacing-md;
 }
 
 .newsCard {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  background-color: $white;
+  padding: $spacing-md;
+  border-radius: $border-radius;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: left;
 
   h3 {
-    font-size: 18px;
-    color: #333;
-    margin: 10px 0;
+    font-size: $font-size-md;
+    color: $text-dark;
+    margin: $spacing-sm 0;
   }
 
   p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
+    font-size: $font-size-sm;
+    color: $gray-dark;
+    margin-bottom: $spacing-sm;
   }
 }
 
@@ -754,28 +724,27 @@
   width: 100%;
   height: 150px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: $border-radius;
 }
 
 .readMoreButton {
-  padding: 10px 20px;
+  padding: $spacing-sm $spacing-md;
   background-color: transparent;
-  color: #007bff;
+  color: #4db6ac; // Зелёный цвет
   border: none;
-  font-size: 16px;
+  font-size: $font-size-md;
   cursor: pointer;
   transition: color 0.3s;
 
   &:hover {
-    color: #0056b3;
+    color: #26a69a; // Более тёмный зелёный
   }
 }
 
-// Новые стили для футера
 .footer {
-  padding: 50px 40px;
+  padding: $spacing-xl;
   background-color: #1a2a44;
-  color: #fff;
+  color: $white;
 }
 
 .footerContent {
@@ -783,13 +752,13 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: $spacing-md;
 }
 
 .footerLeft {
   p {
-    font-size: 16px;
-    color: #ccc;
+    font-size: $font-size-md;
+    color: $gray-dark;
   }
 }
 
@@ -797,57 +766,57 @@
   text-align: right;
 
   p {
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-size: $font-size-md;
+    margin-bottom: $spacing-md;
   }
 }
 
 .newsletterForm {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
 }
 
 .newsletterInput {
-  padding: 10px;
+  padding: $spacing-sm;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: $border-radius;
+  font-size: $font-size-md;
   width: 200px;
 }
 
 .subscribeButton {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  padding: $spacing-sm $spacing-md;
+  background-color: #4db6ac; // Зелёный цвет
+  color: $white;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: $border-radius;
+  font-size: $font-size-md;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #26a69a; // Более тёмный зелёный
   }
 }
 
 .footerLinks {
   display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
 
   a {
-    color: #ccc;
+    color: $gray-dark;
     text-decoration: none;
-    font-size: 16px;
+    font-size: $font-size-md;
 
     &:hover {
-      color: #fff;
+      color: $white;
     }
   }
 }
 
 .copyright {
-  font-size: 14px;
-  color: #999;
+  font-size: $font-size-sm;
+  color: $gray-dark;
 }
