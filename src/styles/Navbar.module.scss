@@ -1,0 +1,86 @@
+// src/styles/Navbar.module.scss
+@import './variables';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-lg $spacing-xl;
+  background-color: $white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: $font-size-lg;
+  font-weight: bold;
+  color: $primary;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: $spacing-md;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  text-decoration: none;
+  color: $text-dark;
+  font-size: $font-size-md;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.authButtons {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.loginButton {
+  text-decoration: none;
+  color: $text-dark;
+  font-size: $font-size-md;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+
+  &:hover {
+    background-color: $gray-light;
+  }
+}
+
+.signUpButton {
+  text-decoration: none;
+  color: $white;
+  font-size: $font-size-md;
+  padding: $spacing-sm $spacing-md;
+  background-color: $primary;
+  border-radius: $border-radius;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $primary-dark;
+  }
+}
+
+.logoutButton {
+  padding: $spacing-sm $spacing-md;
+  background-color: $danger;
+  color: $white;
+  border: none;
+  border-radius: $border-radius;
+  font-size: $font-size-md;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $danger-dark;
+  }
+}

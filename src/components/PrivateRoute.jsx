@@ -1,16 +1,16 @@
+// src/components/PrivateRoute.jsx
 import React from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import { isAuthenticated } from '../utils/auth';
 
 const PrivateRoute = ({ children }) => {
-    const { isAuthenticated } = useSelector((state) => state.auth);
-    const location = useLocation();
+  const authenticated = isAuthenticated();
 
-    return isAuthenticated ? (
-        children
-    ) : (
-        <Navigate to="/login" state={{ from: location }} replace />
-    );
+  if (authenticated === null) {
+    return <div>Loading...</div>; // Показываем лоадер, пока проверяем авторизацию
+  }
+
+  return authenticated ? children : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;

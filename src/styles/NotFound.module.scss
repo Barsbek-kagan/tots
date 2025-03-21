@@ -1,0 +1,38 @@
+// src/styles/NotFound.module.scss
+@import './variables';
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background-color: $gray-light;
+
+  h1 {
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.homeLink {
+  padding: $spacing-sm $spacing-md;
+  background-color: $primary;
+  color: $white;
+  text-decoration: none;
+  border-radius: $border-radius;
+  font-size: $font-size-md;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $primary-dark;
+  }
+}

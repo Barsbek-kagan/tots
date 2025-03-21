@@ -1,0 +1,822 @@
+// src/styles/HomePage.module.scss
+@import './variables';
+
+.homePage {
+  background: linear-gradient(180deg, #e6f0fa 0%, $white 100%);
+  padding: 0;
+}
+
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-xl;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(180deg, #b3e5fc 0%, $white 100%);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: $spacing-md;
+  }
+}
+
+.heroContent {
+  flex: 1;
+  max-width: 500px;
+
+  h1 {
+    font-size: $font-size-xxl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+    line-height: 1.2;
+
+    .highlight {
+      color: #ff9800; // Оранжевый цвет для "Online"
+    }
+
+    @media (max-width: 768px) {
+      font-size: $font-size-xl;
+    }
+  }
+
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.heroButtons {
+  display: flex;
+  gap: $spacing-md;
+}
+
+.joinButton {
+  padding: $spacing-sm $spacing-lg;
+  background-color: #4db6ac; // Зелёный цвет
+  color: $white;
+  border: none;
+  border-radius: 25px;
+  font-size: $font-size-md;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #26a69a; // Более тёмный зелёный
+  }
+}
+
+.watchButton {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-lg;
+  background-color: transparent;
+  color: #4db6ac; // Зелёный цвет
+  border: 1px solid #4db6ac;
+  border-radius: 25px;
+  font-size: $font-size-md;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #4db6ac;
+    color: $white;
+  }
+}
+
+.playIcon {
+  font-size: $font-size-md;
+}
+
+.heroImage {
+  flex: 1;
+  position: relative;
+  max-width: 500px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: $spacing-lg;
+  }
+}
+
+.floatingCard {
+  position: absolute;
+  background-color: $white;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: $font-size-sm;
+  color: $text-dark;
+}
+
+.statsCard {
+  top: $spacing-md;
+  left: -50px;
+  background-color: #b3e5fc; // Голубой цвет
+}
+
+.congratsCard {
+  bottom: 50px;
+  right: -50px;
+  background-color: #ff9800; // Оранжевый цвет
+  color: $white;
+}
+
+.userCard {
+  bottom: $spacing-md;
+  left: -50px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  background-color: #f06292; // Розовый цвет
+  color: $white;
+}
+
+.joinNowButton {
+  padding: $spacing-xs $spacing-md;
+  background-color: $white;
+  color: #f06292;
+  border: none;
+  border-radius: $border-radius;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+.calendarCard {
+  top: 50px;
+  right: -30px;
+  background-color: #f06292; // Розовый цвет
+  padding: $spacing-sm;
+
+  svg {
+    font-size: $font-size-lg;
+    color: $white;
+  }
+}
+
+.videoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.videoModalContent {
+  position: relative;
+  background-color: $white;
+  padding: $spacing-md;
+  border-radius: $border-radius;
+  max-width: 800px;
+  width: 90%;
+}
+
+.closeButton {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  background: none;
+  border: none;
+  font-size: $font-size-lg;
+  cursor: pointer;
+  color: $text-dark;
+}
+
+.successSection {
+  padding: $spacing-xl;
+  text-align: center;
+  background-color: $white;
+
+  h2 {
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    max-width: 600px;
+    margin: 0 auto $spacing-xl;
+  }
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.statItem {
+  h3 {
+    font-size: $font-size-xxl;
+    color: #4db6ac; // Зелёный цвет
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    font-size: $font-size-md;
+    color: $text-dark;
+  }
+
+  span {
+    display: block;
+    font-size: $font-size-sm;
+    color: $gray-dark;
+    margin-top: $spacing-xs;
+  }
+}
+
+.softwareSection {
+  padding: $spacing-xl;
+  text-align: center;
+  background-color: $gray-light;
+
+  h2 {
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    max-width: 600px;
+    margin: 0 auto $spacing-xl;
+  }
+}
+
+.featureCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-md;
+}
+
+.featureCard {
+  background-color: $white;
+  padding: $spacing-lg;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  h3 {
+    font-size: $font-size-lg;
+    color: $text-dark;
+    margin: $spacing-md 0 $spacing-sm;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $gray-dark;
+  }
+}
+
+.featureIcon {
+  font-size: 50px;
+  color: #4db6ac; // Зелёный цвет
+}
+
+.whatIsTotcSection {
+  padding: $spacing-xl;
+  text-align: center;
+  background-color: $white;
+
+  h2 {
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    max-width: 600px;
+    margin: 0 auto $spacing-xl;
+  }
+}
+
+.totcCards {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.totcCard {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $white;
+    font-size: $font-size-lg;
+    z-index: 2;
+  }
+}
+
+.totcImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+.totcButton {
+  position: absolute;
+  bottom: $spacing-md;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: $spacing-sm $spacing-md;
+  background-color: #4db6ac; // Зелёный цвет
+  color: $white;
+  border: none;
+  border-radius: $border-radius;
+  font-size: $font-size-md;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #26a69a; // Более тёмный зелёный
+  }
+}
+
+.classroomSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-xl;
+  background-color: $gray-light;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: $spacing-md;
+  }
+}
+
+.classroomContent {
+  flex: 1;
+  max-width: 500px;
+
+  h2 {
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.learnMoreButton {
+  padding: $spacing-sm $spacing-md;
+  background-color: transparent;
+  color: #4db6ac; // Зелёный цвет
+  border: none;
+  font-size: $font-size-md;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #26a69a; // Более тёмный зелёный
+  }
+}
+
+.classroomImage {
+  flex: 1;
+  max-width: 500px;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+  }
+}
+
+.featuresSection {
+  padding: $spacing-xl;
+  text-align: center;
+  background-color: $white;
+
+  h2 {
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    max-width: 600px;
+    margin: 0 auto $spacing-xl;
+  }
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.featureLeft {
+  flex-direction: row;
+}
+
+.featureRight {
+  flex-direction: row-reverse;
+}
+
+.featureContent {
+  flex: 1;
+  max-width: 500px;
+
+  h3 {
+    font-size: $font-size-lg;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+
+  li {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-sm;
+    position: relative;
+    padding-left: $spacing-md;
+
+    &:before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #4db6ac; // Зелёный цвет
+    }
+  }
+}
+
+.featureImage {
+  flex: 1;
+  max-width: 500px;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+  }
+}
+
+.courseSection {
+  padding: $spacing-xl;
+  text-align: center;
+  background-color: $gray-light;
+
+  h2 {
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.courseCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-md;
+}
+
+.courseCard {
+  background-color: $white;
+  padding: $spacing-md;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+
+  h3 {
+    font-size: $font-size-md;
+    color: $text-dark;
+    margin: $spacing-sm 0;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $gray-dark;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.courseImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: $border-radius;
+}
+
+.courseMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: $font-size-sm;
+  color: $gray-dark;
+  margin-bottom: $spacing-sm;
+}
+
+.exploreButton {
+  width: 100%;
+  padding: $spacing-sm;
+  background-color: #4db6ac; // Зелёный цвет
+  color: $white;
+  border: none;
+  border-radius: $border-radius;
+  font-size: $font-size-md;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #26a69a; // Более тёмный зелёный
+  }
+}
+
+.seeAll {
+  margin-top: $spacing-md;
+  text-align: right;
+
+  a {
+    color: #4db6ac; // Зелёный цвет
+    text-decoration: none;
+    font-size: $font-size-md;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.testimonialSection {
+  padding: $spacing-xl;
+  text-align: center;
+  background-color: $white;
+
+  h2 {
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    max-width: 600px;
+    margin: 0 auto $spacing-xl;
+  }
+}
+
+.assessmentButton {
+  padding: $spacing-sm $spacing-md;
+  background-color: transparent;
+  color: #4db6ac; // Зелёный цвет
+  border: none;
+  font-size: $font-size-md;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #26a69a; // Более тёмный зелёный
+  }
+}
+
+.testimonialContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: $spacing-xl;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.testimonialText {
+  flex: 1;
+  max-width: 500px;
+  text-align: left;
+
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.testimonialAuthor {
+  font-size: $font-size-md;
+  color: $text-dark;
+  margin-bottom: $spacing-xs;
+}
+
+.testimonialMeta {
+  font-size: $font-size-sm;
+  color: $gray-dark;
+}
+
+.testimonialImage {
+  flex: 1;
+  max-width: 500px;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+  }
+}
+
+.newsSection {
+  padding: $spacing-xl;
+  text-align: center;
+  background-color: $gray-light;
+
+  h2 {
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.newsCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-md;
+}
+
+.newsCard {
+  background-color: $white;
+  padding: $spacing-md;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+
+  h3 {
+    font-size: $font-size-md;
+    color: $text-dark;
+    margin: $spacing-sm 0;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $gray-dark;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.newsImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: $border-radius;
+}
+
+.readMoreButton {
+  padding: $spacing-sm $spacing-md;
+  background-color: transparent;
+  color: #4db6ac; // Зелёный цвет
+  border: none;
+  font-size: $font-size-md;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #26a69a; // Более тёмный зелёный
+  }
+}
+
+.footer {
+  padding: $spacing-xl;
+  background-color: #1a2a44;
+  color: $white;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.footerLeft {
+  p {
+    font-size: $font-size-md;
+    color: $gray-dark;
+  }
+}
+
+.footerRight {
+  text-align: right;
+
+  p {
+    font-size: $font-size-md;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.newsletterForm {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+}
+
+.newsletterInput {
+  padding: $spacing-sm;
+  border: none;
+  border-radius: $border-radius;
+  font-size: $font-size-md;
+  width: 200px;
+}
+
+.subscribeButton {
+  padding: $spacing-sm $spacing-md;
+  background-color: #4db6ac; // Зелёный цвет
+  color: $white;
+  border: none;
+  border-radius: $border-radius;
+  font-size: $font-size-md;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #26a69a; // Более тёмный зелёный
+  }
+}
+
+.footerLinks {
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+
+  a {
+    color: $gray-dark;
+    text-decoration: none;
+    font-size: $font-size-md;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.copyright {
+  font-size: $font-size-sm;
+  color: $gray-dark;
+}

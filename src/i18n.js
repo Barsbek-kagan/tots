@@ -9,27 +9,27 @@ import translationKG from './locales/kg.json'; // Добавляем кыргы�
 
 // Ресурсы для переводов
 const resources = {
-    en: {
-        translation: translationEN,
-    },
-    ru: {
-        translation: translationRU,
-    },
-    kg: {
-        // Добавляем кыргызский язык
-        translation: translationKG,
-    },
+  en: {
+    translation: translationEN,
+  },
+  ru: {
+    translation: translationRU,
+  },
+  kg: {
+    // Добавляем кыргызский язык
+    translation: translationKG,
+  },
 };
 
 i18n
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({
-        resources,
-        fallbackLng: 'en',
-        interpolation: {
-            escapeValue: false,
-        },
-    });
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources,
+    fallbackLng: 'en',
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
 export default i18n;

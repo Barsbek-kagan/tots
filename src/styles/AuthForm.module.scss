@@ -1,430 +1,197 @@
-$primary-color: #00c4b4;
-$secondary-color: #e0f7fa;
-$background-color: #f5f5f5;
-$white: #fff;
-$gray: #666;
-$gray-light: #b0bec5;
-$gray-dark: #333;
-$error-color: #ff4d4f;
-$border-radius: 20px;
-$border-radius-small: 15px;
-$box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+// src/styles/AuthForm.module.scss
+@import './variables';
 
-@mixin flex-center {
+.authPage {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
+  background-color: $white;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
-.authContainer {
-  @include flex-center;
-  min-height: 100vh;
-  background-color: $background-color;
+.authImage {
+  flex: 1;
+  position: relative;
+  background-color: $gray-light;
 
-  .leftSection {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    background-color: $white;
-
-    .imageWrapper {
-      width: 100%;
-      max-width: 500px;
-      margin-bottom: 20px;
-
-      img {
-        width: 100%;
-        border-radius: $border-radius;
-        object-fit: cover;
-      }
-    }
-
-    .description {
-      font-size: 16px;
-      color: $gray;
-      text-align: center;
-      max-width: 400px;
-    }
-  }
-
-  .rightSection {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 40px;
-    background-color: $white;
-
-    .formWrapper {
-      max-width: 400px;
-      width: 100%;
-      margin: 0 auto;
-
-      .welcome {
-        font-size: 24px;
-        font-weight: bold;
-        color: $gray-dark;
-        margin-bottom: 20px;
-        text-align: center;
-      }
-
-      .tabs {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-
-        .tab {
-          padding: 10px 20px;
-          font-size: 16px;
-          color: $gray;
-          text-decoration: none;
-          border-bottom: 2px solid transparent;
-          transition: all 0.3s;
-
-          &.active {
-            color: $primary-color;
-            border-bottom: 2px solid $primary-color;
-          }
-
-          &:hover {
-            color: $primary-color;
-          }
-        }
-      }
-
-      .description {
-        font-size: 14px;
-        color: $gray;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      .form {
-        .inputGroup {
-          margin-bottom: 20px;
-
-          label {
-            display: block;
-            font-size: 14px;
-            color: $gray-dark;
-            margin-bottom: 8px;
-          }
-
-          .passwordWrapper {
-            position: relative;
-
-            input {
-              width: 100%;
-              padding: 12px 40px 12px 16px;
-              font-size: 14px;
-              color: $gray-dark;
-              border: 1px solid $primary-color;
-              border-radius: $border-radius;
-              outline: none;
-              transition: border-color 0.3s;
-
-              &:focus {
-                border-color: darken($primary-color, 10%);
-              }
-
-              &.error {
-                border-color: $error-color;
-              }
-
-              &::placeholder {
-                color: $gray-light;
-              }
-            }
-
-            .eyeIcon {
-              position: absolute;
-              right: 15px;
-              top: 50%;
-              transform: translateY(-50%);
-              cursor: pointer;
-              color: $gray;
-              font-size: 16px;
-            }
-          }
-
-          input:not([type="password"]) {
-            width: 100%;
-            padding: 12px 16px;
-            font-size: 14px;
-            color: $gray-dark;
-            border: 1px solid $primary-color;
-            border-radius: $border-radius;
-            outline: none;
-            transition: border-color 0.3s;
-
-            &:focus {
-              border-color: darken($primary-color, 10%);
-            }
-
-            &.error {
-              border-color: $error-color;
-            }
-
-            &::placeholder {
-              color: $gray-light;
-            }
-          }
-
-          .errorMessage {
-            font-size: 12px;
-            color: $error-color;
-            margin-top: 5px;
-          }
-        }
-
-        .options {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 20px;
-
-          label {
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-            color: $gray;
-
-            input {
-              margin-right: 8px;
-            }
-          }
-
-          a {
-            font-size: 14px;
-            color: $primary-color;
-            text-decoration: none;
-
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-        }
-
-        .submitButton {
-          width: 100%;
-          padding: 12px;
-          font-size: 16px;
-          font-weight: 500;
-          color: $white;
-          background-color: $primary-color;
-          border: none;
-          border-radius: $border-radius;
-          cursor: pointer;
-          transition: background-color 0.3s;
-
-          &:hover {
-            background-color: darken($primary-color, 10%);
-          }
-
-          &:disabled {
-            background-color: $gray-light;
-            cursor: not-allowed;
-          }
-        }
-
-        .error {
-          font-size: 14px;
-          color: $error-color;
-          text-align: center;
-          margin-top: 15px;
-        }
-      }
-
-      .guestLogin {
-        text-align: center;
-        margin-top: 20px;
-
-        .guestButton {
-          padding: 10px 20px;
-          font-size: 14px;
-          color: $white;
-          background-color: $primary-color;
-          border: none;
-          border-radius: $border-radius;
-          cursor: pointer;
-          transition: background-color 0.3s;
-
-          &:hover {
-            background-color: darken($primary-color, 10%);
-          }
-
-          &:disabled {
-            background-color: $gray-light;
-            cursor: not-allowed;
-          }
-        }
-      }
-
-      .link {
-        font-size: 14px;
-        color: $gray;
-        text-align: center;
-        margin-top: 20px;
-
-        a {
-          color: $primary-color;
-          text-decoration: none;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-    }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   @media (max-width: 768px) {
+    height: 300px;
+  }
+}
+
+.imageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ff4d4f; // Красный фон
+  padding: $spacing-md;
+  text-align: center;
+
+  h2 {
+    font-size: $font-size-lg;
+    color: $white;
+    margin: 0;
+  }
+}
+
+.authForm {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $spacing-xl;
+  max-width: 500px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: $font-size-xl;
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  @media (max-width: 768px) {
+    padding: $spacing-md;
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+}
+
+.tab {
+  padding: $spacing-sm $spacing-lg;
+  background-color: $gray-light;
+  color: $gray-dark;
+  text-decoration: none;
+  font-size: $font-size-md;
+  border-radius: 25px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &.active {
+    background-color: #4db6ac; // Зелёный цвет для активной вкладки
+    color: $white;
+  }
+}
+
+.description {
+  font-size: $font-size-md;
+  color: $gray-dark;
+  margin-bottom: $spacing-lg;
+}
+
+.inputGroup {
+  margin-bottom: $spacing-md;
+  position: relative;
+
+  .inputIcon {
+    position: absolute;
+    left: $spacing-md;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $gray-dark;
+    font-size: $font-size-md;
+  }
+
+  input {
+    width: 100%;
+    padding: $spacing-sm $spacing-md $spacing-sm $spacing-xl;
+    border: 1px solid #4db6ac; // Зелёная граница
+    border-radius: 25px;
+    font-size: $font-size-md;
+    color: $text-dark;
     background-color: $white;
 
-    .leftSection {
-      display: none;
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
     }
 
-    .rightSection {
-      flex: none;
-      width: 100%;
-      padding: 20px;
-      justify-content: flex-start;
-      min-height: 100vh;
-
-      .formWrapper {
-        max-width: 100%;
-        padding: 0 15px;
-
-        .welcome {
-          font-size: 18px;
-          margin-top: 20px;
-          margin-bottom: 15px;
-        }
-
-        .tabs {
-          margin-bottom: 15px;
-
-          .tab {
-            padding: 8px 16px;
-            font-size: 14px;
-          }
-        }
-
-        .description {
-          font-size: 12px;
-          margin-bottom: 15px;
-        }
-
-        .form {
-          .inputGroup {
-            margin-bottom: 15px;
-
-            label {
-              font-size: 12px;
-              margin-bottom: 5px;
-            }
-
-            .passwordWrapper {
-              input {
-                padding: 10px 35px 10px 14px;
-                font-size: 14px;
-                border-radius: $border-radius-small;
-              }
-
-              .eyeIcon {
-                right: 12px;
-                font-size: 14px;
-              }
-            }
-
-            input:not([type="password"]) {
-              padding: 10px 14px;
-              font-size: 14px;
-              border-radius: $border-radius-small;
-            }
-
-            .errorMessage {
-              font-size: 10px;
-              margin-top: 4px;
-            }
-          }
-
-          .options {
-            margin-bottom: 15px;
-
-            label {
-              font-size: 12px;
-
-              input {
-                margin-right: 6px;
-              }
-            }
-
-            a {
-              font-size: 12px;
-            }
-          }
-
-          .submitButton {
-            padding: 10px;
-            font-size: 14px;
-            border-radius: $border-radius-small;
-          }
-
-          .error {
-            font-size: 12px;
-            margin-top: 10px;
-          }
-        }
-
-        .guestLogin {
-          margin-top: 15px;
-
-          .guestButton {
-            padding: 8px 16px;
-            font-size: 12px;
-            border-radius: $border-radius-small;
-          }
-        }
-
-        .link {
-          font-size: 12px;
-          margin-top: 15px;
-        }
-      }
+    &::placeholder {
+      color: $gray-dark;
     }
   }
 }
 
-.languageSwitcher {
+.passwordWrapper {
+  position: relative;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: $spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: $gray-dark;
+  font-size: $font-size-md;
+}
+
+.options {
   display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
 
-  button {
-    margin: 0 5px;
-    padding: 5px 10px;
-    font-size: 14px;
-    color: $gray;
-    background-color: $white;
-    border: 1px solid $primary-color;
-    border-radius: $border-radius-small;
-    cursor: pointer;
-    transition: all 0.3s;
+.rememberMe {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-sm;
+  color: $gray-dark;
 
-    &:hover {
-      background-color: $primary-color;
-      color: $white;
-    }
-
-    &:focus {
-      outline: none;
-      background-color: $primary-color;
-      color: $white;
-    }
+  svg {
+    font-size: $font-size-md;
+    color: #4db6ac; // Зелёный цвет
   }
+}
+
+.forgotPassword {
+  font-size: $font-size-sm;
+  color: $primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.submitButton {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  background-color: #4db6ac; // Зелёный цвет кнопки
+  color: $white;
+  border: none;
+  border-radius: 25px;
+  font-size: $font-size-md;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #26a69a; // Более тёмный зелёный
+  }
+
+  &:disabled {
+    background-color: $gray-dark;
+    cursor: not-allowed;
+  }
+}
+
+.error {
+  color: $danger;
+  text-align: center;
+  margin-bottom: $spacing-md;
+  font-size: $font-size-sm;
 }
